@@ -34,9 +34,13 @@ function App() {
             </div>
           </div>
           <div className="left">
-            <p>
-              <span>185</span>GB LEFT
-            </p>
+            <div>
+              <span>185</span>
+              <span>GB LEFT</span>
+            </div>
+            <div className="corner">
+              <div />
+            </div>
           </div>
         </div>
       </div>

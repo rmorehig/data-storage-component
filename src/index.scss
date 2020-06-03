@@ -43,20 +43,24 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  padding: 0 24px;
 }
 
 .actions {
   background-color: $primary-color;
-  width: 350px;
+  width: 100%;
+  max-width: 540px;
   height: 200px;
-  margin-right: 30px;
+  margin-bottom: 16px;
   border-radius: 10px 100px 10px 10px;
   padding: 40px;
   display: flex;
@@ -67,6 +71,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 33px;
   }
 }
 .icon {
@@ -82,7 +87,8 @@ main {
 }
 
 .storage {
-  width: 540px;
+  width: 100%;
+  max-width: 540px;
   height: calc(100% - 47px);
   background-color: $primary-color;
   border-radius: 10px;
@@ -101,6 +107,7 @@ main {
   border-radius: 10px;
   height: 20px;
   margin-bottom: 8px;
+  margin-top: 16px;
   padding: 3px;
 }
 .used {
@@ -128,27 +135,36 @@ main {
 }
 
 .left {
-  color: $helper-text;
+  padding-bottom: 20px;
   position: absolute;
-  background-color: white;
-  top: -47px;
-  right: 40px;
-  border-radius: 10px 10px 0px 10px;
-  padding: 0px;
-  p {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-  span {
+  top: 80%;
+  align-self: center;
+  > div:first-child {
+    color: $helper-text;
     font-weight: $font-weigth-bold;
-    font-size: 40px;
-    color: $background;
-    vertical-align: middle;
-    margin-right: 9px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 75px 100px rgba(0, 0, 0, 0.24776);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    span:first-child {
+      font-size: 40px;
+      color: $background;
+      margin-right: 9px;
+    }
+    span:not(:first-child) {
+      font-size: 12px;
+      letter-spacing: 1px;
+      vertical-align: middle;
+    }
   }
 }
+.corner {
+  display: none;
+}
 
-@media (min-width: 1000px) {
+@media (min-width: 1440px) {
   body {
     background-image: url(/images/bg-desktop.svg);
     background-position: bottom;
@@ -156,5 +172,41 @@ main {
   }
   .container {
     flex-direction: row;
+    align-items: flex-end;
+  }
+  .actions {
+    background-color: $primary-color;
+    width: 350px;
+    height: 200px;
+    margin-bottom: 0;
+    margin-right: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .left {
+    top: -52px;
+    right: 40px;
+    > div:first-child {
+      border-radius: 10px 10px 0px 10px;
+    }
+  }
+  .corner {
+    display: flex;
+    justify-content: flex-end;
+    > div {
+      box-shadow: 0px 75px 100px rgba(0, 0, 0, 0.24776);
+      background-color: white;
+      height: 22px;
+      width: 22px;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
   }
 }
